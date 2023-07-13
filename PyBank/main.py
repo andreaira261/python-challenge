@@ -35,7 +35,7 @@ for i in range(len(total_list)-1):
 avg_change = round(sum(avg_change_list) / len(avg_change_list),2)
 
 print("Financial Analysis")
-print("------------------------------------------------------------------")
+print ("-------------------------")
 
 print(f"Total Months: {months}")
 
