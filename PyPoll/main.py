@@ -2,7 +2,6 @@ import csv
 
 csvpath = '/Users/andreaaguilar/python-challenge/PyPoll/Resources/election_data.csv'
 
-id_list = []
 candidates = []
 
 with open (csvpath) as csvfile:
@@ -12,11 +11,10 @@ with open (csvpath) as csvfile:
     #print(f"CSV Header: {csv_header}")
 
     for row in csvreader: 
-        id_list.append(row[0])
 
         candidates.append(row[2])
 
-total_votes = len(id_list)
+total_votes = len(candidates)
 
 candidates_list = []
 for i in candidates:
@@ -24,14 +22,18 @@ for i in candidates:
         candidates_list.append(i)
 
 candidates_votes = []
+vote_percent = []
 for i in range(len(candidates_list)):
     votes = candidates.count(candidates_list[i])
     candidates_votes.append(votes)
-
-vote_percent = []
-for i in range(len(candidates_list)):
     percent = round((candidates_votes[i] / total_votes)*100,3)
     vote_percent.append(percent)
+
+
+#vote_percent = []
+#for i in range(len(candidates_list)):
+#    percent = round((candidates_votes[i] / total_votes)*100,3)
+#    vote_percent.append(percent)
  
 winner_index = (candidates_votes.index(max(candidates_votes)))
 
@@ -46,7 +48,24 @@ for i in range(len(candidates_list)):
 print ("-------------------------")
 
 print (f"Winner: {candidates_list[winner_index]}")
+
+print ("-------------------------")
     
+output_file = '/Users/andreaaguilar/python-challenge/PyPoll/Analysis/results.txt'
+
+with open(output_file, "w") as resultfile:
+    resultfile.write("Election Results\n")
+    resultfile.write("-------------------------\n")
+
+    resultfile.write(f"Total Votes: {total_votes}\n")
+    resultfile.write("-------------------------\n")
+
+    for i in range(len(candidates_list)):
+        resultfile.write(f"{candidates_list[i]}: {vote_percent[i]}% ({candidates_votes[i]})\n")
+    resultfile.write("-------------------------\n")
+
+    resultfile.write(f"Winner: {candidates_list[winner_index]}\n")
+    resultfile.write("-------------------------\n")
 
     
 

@@ -1,4 +1,5 @@
 import csv
+import os
 
 csvpath = '/Users/andreaaguilar/python-challenge/PyBank/Resources/budget_data.csv'
 
@@ -7,7 +8,8 @@ total_list = []
 
 with open (csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
-    
+    #print(f"CSV Header: {csv_header}")
+
     csv_header = next(csvreader)
     
     for row in csvreader:
@@ -46,3 +48,19 @@ print(f"Average Change: ${avg_change}")
 print (f"Greatest Increase in Profits: {months_list[greatest_inc_row]} (${greatest_inc})")
 
 print (f"Greatest Decrease in Profits: {months_list[greatest_dec_row]} (${greatest_dec})")
+
+output_file = "/Users/andreaaguilar/python-challenge/PyBank/Analysis/results.txt"
+
+with open(output_file, "w") as resultfile:
+    resultfile.write("Financial Analysis\n")
+    resultfile.write("-------------------------\n")
+
+    resultfile.write(f"Total Months: {months}\n")
+
+    resultfile.write(f"Total: ${total}\n")
+
+    resultfile.write(f"Average Change: ${avg_change}\n")
+
+    resultfile.write(f"Greatest Increase in Profits: {months_list[greatest_inc_row]} (${greatest_inc})\n")
+
+    resultfile.write(f"Greatest Decrease in Profits: {months_list[greatest_dec_row]} (${greatest_dec})\n")
