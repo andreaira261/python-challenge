@@ -1,17 +1,19 @@
 import csv
 import os
 
-csvpath = '/Users/andreaaguilar/python-challenge/PyBank/Resources/budget_data.csv'
+#csvpath = '/Users/andreaaguilar/python-challenge/PyBank/Resources/budget_data.csv'
+current_directory = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(current_directory, 'Resources', 'budget_data.csv')
 
 months_list = []
 total_list = []
 
-with open (csvpath) as csvfile:
+with open (file_path) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
-    #print(f"CSV Header: {csv_header}")
 
     csv_header = next(csvreader)
-    
+    #print(f"CSV Header: {csv_header}")
+
     for row in csvreader:
         months_list.append(row[0])
 

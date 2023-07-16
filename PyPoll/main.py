@@ -1,10 +1,13 @@
 import csv
+import os
 
-csvpath = '/Users/andreaaguilar/python-challenge/PyPoll/Resources/election_data.csv'
+#csvpath = '/Users/andreaaguilar/python-challenge/PyPoll/Resources/election_data.csv'
+current_directory = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(current_directory, 'Resources', 'election_data.csv')
 
 candidates = []
 
-with open (csvpath) as csvfile:
+with open (file_path) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     
     csv_header = next(csvreader)
@@ -28,12 +31,6 @@ for i in range(len(candidates_list)):
     candidates_votes.append(votes)
     percent = round((candidates_votes[i] / total_votes)*100,3)
     vote_percent.append(percent)
-
-
-#vote_percent = []
-#for i in range(len(candidates_list)):
-#    percent = round((candidates_votes[i] / total_votes)*100,3)
-#    vote_percent.append(percent)
  
 winner_index = (candidates_votes.index(max(candidates_votes)))
 
@@ -66,10 +63,3 @@ with open(output_file, "w") as resultfile:
 
     resultfile.write(f"Winner: {candidates_list[winner_index]}\n")
     resultfile.write("-------------------------\n")
-
-    
-
-
-
-
-
