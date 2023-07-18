@@ -1,7 +1,7 @@
 import csv
 import os
 
-#csvpath = '/Users/andreaaguilar/python-challenge/PyBank/Resources/budget_data.csv'
+# File path for csv
 current_directory = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(current_directory, 'Resources', 'budget_data.csv')
 
@@ -20,7 +20,7 @@ with open (file_path) as csvfile:
         # Store months in a list
         months_list.append(row[0])
 
-        # Store "Profit/Losses" in alist
+        # Store "Profit/Losses" from each month in a list
         total_list.append(int(row[1]))
 
 # Caluculate total number of months
@@ -33,7 +33,7 @@ total = sum(total_list)
 greatest_inc = 0
 greatest_dec = 0
 
-# List for storing "Profit/Losses" over the entire period and average of those changes
+# List for storing "Profit/Losses" over the entire period
 avg_change_list = []
 
 # Loops through each month in dataset 

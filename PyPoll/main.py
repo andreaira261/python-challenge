@@ -1,7 +1,7 @@
 import csv
 import os
 
-#csvpath = '/Users/andreaaguilar/python-challenge/PyPoll/Resources/election_data.csv'
+# File path for csv
 current_directory = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(current_directory, 'Resources', 'election_data.csv')
 
@@ -36,7 +36,7 @@ vote_percent = []
 
 # Loops through range of number of unique candidates
 for i in range(len(candidates_list)):
-    # Counts number of times each candidate received according to candidates_list
+    # Counts number of times each candidate received by matching names in 'candidates_list'
     votes = candidates.count(candidates_list[i])
     
     # Stores total number of votes for each candidate
@@ -69,7 +69,7 @@ print ("-------------------------")
 # Variable and path to output file for printing results to text file     
 output_file = '/Users/andreaaguilar/python-challenge/PyPoll/Analysis/results.txt'
 
-# Pring results in text file
+# Print results in text file
 with open(output_file, "w") as resultfile:
     resultfile.write("Election Results\n")
     resultfile.write("-------------------------\n")
