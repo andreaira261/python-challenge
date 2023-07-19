@@ -33,7 +33,7 @@ total = sum(total_list)
 greatest_inc = 0
 greatest_dec = 0
 
-# List for storing "Profit/Losses" over the entire period
+# List for storing changes in "Profit/Losses" over the entire period
 avg_change_list = []
 
 # Loops through each month in dataset 
