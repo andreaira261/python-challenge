@@ -78,9 +78,6 @@ print (f"Greatest Decrease in Profits: {months_list[greatest_dec_row]} (${greate
 # Variable and path to output file for printing results to text file     
 output_file_path = os.path.join(current_directory, 'Analysis', 'results.txt')
 
-with open (output_file_path) as txtfile:
-    csvreader = csv.reader(txtfile, delimiter=",")
-
 # Print results in text file
 with open(output_file_path, "w") as resultfile:
     resultfile.write("Financial Analysis\n")
