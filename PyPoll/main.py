@@ -67,10 +67,10 @@ print (f"Winner: {candidates_list[winner_index]}")
 print ("-------------------------")
 
 # Variable and path to output file for printing results to text file     
-output_file = '/Users/andreaaguilar/python-challenge/PyPoll/Analysis/results.txt'
+output_file_path = os.path.join(current_directory, 'Analysis', 'results.txt')
 
 # Print results in text file
-with open(output_file, "w") as resultfile:
+with open(output_file_path, "w") as resultfile:
     resultfile.write("Election Results\n")
     resultfile.write("-------------------------\n")
 
